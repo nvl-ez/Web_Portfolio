@@ -28,7 +28,7 @@ pointLight.position.set(20, 20, 20);
 
 scene.add(pointLight);
 
-function animate(){
+function animate(){ 
   requestAnimationFrame(animate);
 
   torus.rotation.x += 0.01;
