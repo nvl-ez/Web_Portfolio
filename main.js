@@ -74,10 +74,11 @@ if(debug){
   scene.add(plainHelper);
 }
 
-
 //FUNCIONES
 function animate(){
   requestAnimationFrame(animate);
+
+  TWEEN.update();
 
   renderer.render(scene, camera);
 }
@@ -111,12 +112,21 @@ Array(200).fill().forEach(addStar);
 
 //Movemos la luna arriba
 moon.position.setY(top);
+moon.rotation.y = 90;
 
-//Movemos la camara arriba de la luna y la rotamos
-camera.position.setZ(-20);
+//Movemos la camara arriba de la luna
+camera.position.setZ(-40);
 camera.position.setX(0);
 camera.position.setY(top);
 camera.lookAt(0, top, moonRadius);
+// Set the target position and duration for the animation
+const targetPosition = new THREE.Vector3(0, top+moonRadius, -moonRadius/2); 
+const duration = 2000; // Example: Animation duration in milliseconds
 
+// Create a new tween for the camera's position
+const cameraTween = new TWEEN.Tween(camera.position)
+  .to(targetPosition, duration)
+  .easing(TWEEN.Easing.Quadratic.InOut) // Example: Easing function
+  .start();
 
 animate();
