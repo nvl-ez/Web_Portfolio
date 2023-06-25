@@ -2,4 +2,24 @@ canvas{
   position: fixed;
   top: 0;
   left: 0;
+
+  /*Gradient generator: https://cssgradient.io*/
+  background: rgb(43,0,138);
+  background: radial-gradient(circle, rgba(43,0,138,1) 0%, rgba(0,0,82,1) 50%, rgba(1,0,36,1) 100%);
+}
+
+main {
+  position: absolute;
+}
+
+p{
+  font-size: large;
+}
+
+section{
+  max-width: 10%;
+}
+
+main{
+  visibility: hidden;
 }
